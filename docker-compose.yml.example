@@ -1,0 +1,18 @@
+web:
+  build: .
+  ports:
+    - "80"
+  dns:
+    - 8.8.8.8
+    - 8.8.4.4
+ links:
+   - db
+db:
+  image: mysql:5.5
+  environment:
+    MYSQL_ROOT_PASSWORD:
+    MYSQL_DATABASE:
+    MYSQL_USER:
+    MYSQL_PASSWORD:
+  ports:
+    - "3306:3306"
